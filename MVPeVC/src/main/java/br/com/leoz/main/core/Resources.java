@@ -1,7 +1,7 @@
 package br.com.leoz.main.core;
 
 import br.com.leoz.model.dao.factory.AbstractDAOFactory;
-import br.com.leoz.model.dao.factory.XMLDAOFactory;
+import br.com.leoz.model.dao.xml.XMLDAOFactory;
 import br.com.leoz.view.factory.AbstractViewFactory;
 import br.com.leoz.view.fx.FXViewFactory;
 

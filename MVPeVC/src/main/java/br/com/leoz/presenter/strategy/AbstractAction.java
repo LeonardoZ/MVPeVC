@@ -1,6 +1,7 @@
 package br.com.leoz.presenter.strategy;
 
-public interface IStrategy {
+
+public interface AbstractAction {
 
 	void acao();
 

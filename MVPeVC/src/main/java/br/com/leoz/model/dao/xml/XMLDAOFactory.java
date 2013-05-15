@@ -1,7 +1,7 @@
-package br.com.leoz.model.dao.factory;
+package br.com.leoz.model.dao.xml;
 
 import br.com.leoz.model.dao.MercadoriaDAO;
-import br.com.leoz.model.dao.xml.MercadoriaXMLDAO;
+import br.com.leoz.model.dao.factory.AbstractDAOFactory;
 
 /**
  * 

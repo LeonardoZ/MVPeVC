@@ -5,9 +5,17 @@ import java.util.List;
 
 import br.com.leoz.model.Mercadoria;
 import br.com.leoz.model.dao.MercadoriaDAO;
-import br.com.leoz.presenter.strategy.IStrategy;
+import br.com.leoz.presenter.strategy.AbstractAction;
 import br.com.leoz.view.MercadoriaViewHelper;
 
+/**
+ * @author Leonardo H. Zapparoli O presenter comanda a view e os dados. O Modelo
+ *         de passive-view delega todas as movimentação a esta classe, que é
+ *         responsável por chamar os states. O AbstractAction em forma de classe
+ *         anônima pode ser refatorado para uma classe concreta, se desejado. O
+ *         interessante é que a utiluização dele não nos obriga a criar nenhum
+ *         vinculo com os listeners da GUI, seja qual for o tipo dela.
+ */
 public class MercadoriaPresenter implements IPresenter<Mercadoria> {
 
 	private Mercadoria bean;
@@ -21,7 +29,7 @@ public class MercadoriaPresenter implements IPresenter<Mercadoria> {
 	}
 
 	public void iniciarView() {
-
+		viewHelper.iniciarView();
 	}
 
 	public Mercadoria getModel() {
@@ -41,41 +49,40 @@ public class MercadoriaPresenter implements IPresenter<Mercadoria> {
 	public void configurarStrategies() {
 		viewHelper.setListaCadastrados(listaModel);
 
-		viewHelper.setBeanSelecionado(new IStrategy() {
+		viewHelper.setBeanSelecionado(new AbstractAction() {
 
 			public void acao() {
-				// TODO Auto-generated method stub
-
-			}
-		});
-		viewHelper.setStrategyAtualizar(new IStrategy() {
-
-			public void acao() {
-				// TODO Auto-generated method stub
 
 			}
 		});
 
-		viewHelper.setStrategyNovo(new IStrategy() {
+		viewHelper.setStrategyAtualizar(new AbstractAction() {
 
 			public void acao() {
-				// TODO Auto-generated method stub
 
 			}
 		});
 
-		viewHelper.setStrategyGravar(new IStrategy() {
+		viewHelper.setStrategyNovo(new AbstractAction() {
 
 			public void acao() {
-				// TODO Auto-generated method stub
 
 			}
 		});
 
-		viewHelper.setStrategyRemover(new IStrategy() {
+		viewHelper.setStrategyGravar(new AbstractAction() {
 
 			public void acao() {
-				// TODO Auto-generated method stub
+
+				Mercadoria beanPreenchido = viewHelper.getBeanPreenchido();
+				dao.salvar(beanPreenchido);
+
+			}
+		});
+
+		viewHelper.setStrategyRemover(new AbstractAction() {
+
+			public void acao() {
 
 			}
 		});

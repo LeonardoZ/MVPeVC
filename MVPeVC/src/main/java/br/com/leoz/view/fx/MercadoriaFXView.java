@@ -1,5 +1,7 @@
 package br.com.leoz.view.fx;
 
+
+
 /**
  * @author Leonardo H. Zapparoli Classe que representa a View, que pode ser
  *         qualquer uma. A unica interação importante para o presenter é a
@@ -7,4 +9,6 @@ package br.com.leoz.view.fx;
  */
 public class MercadoriaFXView {
 
+	
+	// Campos e getters para eles
 }

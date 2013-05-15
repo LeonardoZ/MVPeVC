@@ -2,7 +2,7 @@ package br.com.leoz.view;
 
 import java.util.List;
 
-import br.com.leoz.presenter.strategy.IStrategy;
+import br.com.leoz.presenter.strategy.AbstractAction;
 
 public interface IViewHelper<T> {
 
@@ -12,16 +12,20 @@ public interface IViewHelper<T> {
 
 	T getBeanPreenchido();
 
+	void limparCampos();
+
+	boolean camposVazios();
+
 	void setListaCadastrados(List<T> lista);
 
-	void setStrategyGravar(IStrategy s);
+	void setStrategyGravar(AbstractAction s);
 
-	void setStrategyAtualizar(IStrategy s);
+	void setStrategyAtualizar(AbstractAction s);
 
-	void setStrategyRemover(IStrategy s);
+	void setStrategyRemover(AbstractAction s);
 
-	void setStrategyNovo(IStrategy s);
+	void setStrategyNovo(AbstractAction s);
 
-	void setBeanSelecionado(IStrategy s);
+	void setBeanSelecionado(AbstractAction s);
 
 }
